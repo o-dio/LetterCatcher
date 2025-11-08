@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+    
+    <header>
+        <h1>Apanha Letra</h1>
+        <h4>Vitor e Dio</h4>
+    </header>
+    
+    <div id="login">
+        <form id="formLogin">
+            <h2>Entre no chat!</h2>
+            <input id="username" placeholder="Nome" autocomplete="off" />
+            <button id="loginBtn">Login</button>
+        </form>
+    </div>
+
+    <div id="chat">
+        <ul id="messages">
+
+        </ul>
+
+        <form id="form">
+            <p>Aguardando mais participantes...</p>
+            <input type="text" id="input" autocomplete="off" maxlength="6" placeholder="Palavra!" disabled/>
+            <button id="enviar" disabled>Enviar</button>
+        </form>
+    </div>
+
+    <div id="derrota">
+        <p></p>
+    </div>
+    
+    <script src="/js/main.js"></script>
+</body>
+</html>
