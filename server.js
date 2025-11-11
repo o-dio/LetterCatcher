@@ -17,12 +17,16 @@ io.on("connection", socket => {
     console.log("Cliente conectado: ", socket.id)
 
     socket.on("novo usuario", nome => {
-        socket.username = nome
-        conexoes.push(socket.username)
-        console.log(`O cliente ${socket.id} identificou-se como ${socket.username}`)
-        io.emit("usuario entrou", {usersOnline: conexoes.length, text: `${nome} entrou!`, name: nome})
-        if(conexoes.length > 2){
-            socket.emit("lotou")
+        if(!conexoes.includes(nome)){
+            socket.username = nome
+            conexoes.push(socket.username)
+            console.log(`O cliente ${socket.id} identificou-se como ${socket.username}`)
+            io.emit("usuario entrou", {usersOnline: conexoes.length, text: `${nome} entrou!`, name: nome})
+            if(conexoes.length > 2){
+                socket.emit("lotou")
+            }
+        } else {
+            socket.emit("nome duplicado", nome)
         }
     })
 

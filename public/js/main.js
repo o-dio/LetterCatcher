@@ -44,8 +44,15 @@ document.addEventListener("DOMContentLoaded", ()=>{
         window.scrollTo(0, document.body.scrollHeight)
     })
 
+    socket.on("nome duplicado", nome => {
+        alert(`O nome ${nome} já foi usado!`)
+        formLogin.getElementsByTagName("p")[0].innerText = `O nome ${nome} já está em uso!`
+        sessao = ""
+        username.value = ""
+    })
+    
     socket.on("usuario entrou", data => {
-       if (data.name === sessao) {
+       if (data.name === sessao && sessao.length > 0) {
             loginDiv.style.display = "none";
             chatDiv.style.display = "flex";
         }
