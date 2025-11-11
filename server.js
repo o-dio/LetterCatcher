@@ -8,7 +8,7 @@ const io = new Server(server)
 
 app.use(express.static("public"))
 
-const conexoes = []
+var conexoes = []
 var letras = []
 var palavra = ''
 
@@ -42,10 +42,12 @@ io.on("connection", socket => {
             io.emit("perdeu", msg, letra)
             letras = []
             palavra = ''
+            conexoes = []
         } else if(!palavra.includes(letra)){
             io.emit("perdeu", msg, palavra)
             letras = []
             palavra = ''
+            conexoes = []
         } else {
             letras.push(letra)
             palavra = msg.text

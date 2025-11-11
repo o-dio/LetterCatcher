@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const messages = document.getElementById("messages")
 
     let sessao = ""
+    let numero = 0;
 
     formLogin.addEventListener("submit", e => {
         e.preventDefault()
@@ -62,7 +63,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         li.textContent = `${data.text}`
         messages.appendChild(li)
         
-        if(data.usersOnline > 1 ){
+        if(data.usersOnline > 1 && numero < 3){
             input.disabled = false
             enviar.disabled =false
             form.getElementsByTagName("p")[0].style.display = "none"
@@ -99,5 +100,16 @@ document.addEventListener("DOMContentLoaded", ()=>{
             chatDiv.style.display = "flex"
             socket.emit("novo usuario", sessao)
         }, 6000)
+    })
+
+    socket.on("lotou", () => {
+        numero = 3
+        const li = document.createElement("li")
+        li.style.fontStyle = "italic"
+        li.textContent = `Você entrou como espectador!`
+        messages.appendChild(li)
+        input.disabled = true
+        enviar.disabled =true
+        form.getElementsByTagName("p")[0].style.display = "none"
     })
 })
