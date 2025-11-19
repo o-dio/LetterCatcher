@@ -14,8 +14,15 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     const messages = document.getElementById("messages")
 
+    let palavrasValidas = []
+
     let sessao = ""
     let numero = 0;
+
+    fetch("palavras.json")
+        .then(res => res.json())
+        .then(lista => palavrasValidas = lista)
+        .then(() => console.log(`${palavrasValidas.length} palavras adicionadas`))
 
     formLogin.addEventListener("submit", e => {
         e.preventDefault()
@@ -27,10 +34,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
     })
 
     form.addEventListener("submit", e => {
-        e.preventDefault()
+        e.preventDefault()        
         if(input.value.length == 6) {
-            socket.emit("chat message", {user: sessao, text: input.value})
-            input.value = ""
+            if(palavrasValidas.includes(input.value.toLowerCase())){
+                socket.emit("chat message", {user: sessao, text: input.value})
+                input.value = ""
+            } else {
+                alert(`A palavra ${input.value} não existe!`)
+            }
         }
     })
 

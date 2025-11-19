@@ -59,6 +59,10 @@ io.on("connection", socket => {
     socket.on("disconnect", () => {
         if(conexoes.includes(socket.username))
             conexoes.splice(conexoes.indexOf(socket.username), 1)
+            if(conexoes.length === 0){
+                letras = []
+                palavra = ''
+            }
         if(socket.username){
             io.emit("usuario entrou", {usersOnline: conexoes.length, text: `${socket.username} saiu!`})
             console.log("Cliente desconectado: ", socket.username)
