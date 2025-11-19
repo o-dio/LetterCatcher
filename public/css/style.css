@@ -1,21 +1,28 @@
 body {
   font-family: sans-serif;
-  background: #fafafa;
   margin: 0px;
-  background-color: #A9D4D9;
+  background-color: #F2E5D5;
 }
 
 header{
+  height: 10vh;
   display: flex;
   align-items:center;
-  justify-content: space-between;
-  border-bottom: 2px solid black;
+  justify-content: end;
+  border-bottom: 2px solid #732B1A;
   padding: 10px 20px;
-  background-color: #437373;
+  background-color: #D93223;
 }
 
 header h4{
   text-align: end;
+}
+
+header img{
+  height: 8vh;
+  width: auto;
+  border: 2px solid #732B1A;
+  border-radius: 10px;
 }
 
 #chat {
@@ -29,11 +36,20 @@ header h4{
   padding: 0;
 }
 
-#messages li {
-  background: #72A1A6;
+#messages li, #derrota {
+  color: #F2E5D5;
+  background: #D93223;
   margin-bottom: 4px;
   padding: 6px 10px;
   border-radius: 5px;
+}
+
+#derrota strong {
+  background-color: #F2E5D5;
+  color: #732B1A;
+  border: 1px, solid #732B1A;
+  border-radius: 5px;
+  padding: 0px 5px;
 }
 
 #login {
@@ -51,14 +67,30 @@ header h4{
 }
 
 input{
-  border-radius: 15px;
-  border: 1px solid #437373;
+  border-radius: 15px 0px 0px 15px;
+  border: 1px solid #732B1A;
   padding: 5px;
 }
 
 button{
-  border-radius: 15px;
-  border: 1px solid #437373;
+  color: #F2E5D5;
+  height: 27px;
+  border-radius: 0px 15px 15px 0px;
+  border: 1px solid #732B1A;
   padding: 4px 7px;
-  background-color: #72A1A6;
+  background-color: #D93223;
+}
+
+footer{
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+}
+
+footer img {
+  height: 10vh;
+  width: auto;
+  border: 5px solid #732B1A;
+  border-radius: 10px;
+  padding: 0;
 }

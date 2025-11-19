@@ -81,9 +81,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
         messages.innerHTML = ''
 
         if(palavra.length == 1){
-            derrotaDiv.innerHTML = `<h3>O usuário ${msg.user} perdeu pois a palavra ${msg.text} começa com a letra ${palavra}, que já foi usada!</h3><h2></h2>`    
+            derrotaDiv.innerHTML = `<h3>O usuário <strong>${msg.user}</strong> perdeu pois a palavra <strong>${msg.text}</strong> começa com a letra <strong>${palavra}</strong>, que já foi usada!</h3><h2></h2>`    
         } else {
-            derrotaDiv.innerHTML = `<h3>O usuário ${msg.user} perdeu pois a inicial de ${msg.text} não consta em ${palavra}</h3><h2></h2>`    
+            derrotaDiv.innerHTML = `<h3>O usuário <strong>${msg.user}</strong> perdeu pois a inicial de <strong>${msg.text}</strong> não consta em <strong>${palavra}</strong></h3><h2></h2>`    
         }
 
         
